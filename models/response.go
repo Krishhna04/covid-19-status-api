@@ -2,7 +2,7 @@ package models
 
 import "time"
 
-type covidResponse []struct {
+type CovidResponse []struct {
 	Country     string    `json:"Country"`
 	CountryCode string    `json:"CountryCode"`
 	Province    string    `json:"Province"`
@@ -13,4 +13,14 @@ type covidResponse []struct {
 	Cases       int       `json:"Cases"`
 	Status      string    `json:"Status"`
 	Date        time.Time `json:"Date"`
+}
+
+
+type Input struct{
+	Country string `json:"country" binding:"required"`
+}
+
+type Response struct {
+	Status int16                  `json:"status"`
+	Data   map[string]interface{} `json:"data"`
 }
