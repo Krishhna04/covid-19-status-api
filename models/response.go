@@ -15,9 +15,10 @@ type CovidResponse []struct {
 	Date        time.Time `json:"Date"`
 }
 
-
-type Input struct{
-	Country string `json:"country" binding:"required"`
+type Input struct {
+	Country  string `json:"country" binding:"required"`
+	FromDate string `json:"from" binding:"required"`
+	ToDate   string `json:"to" binding:"required"`
 }
 
 type Response struct {

@@ -4,14 +4,13 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
-	"net/http"
 	"krishna/services/covid-19-status/models"
-
+	"net/http"
 )
 
 func SearchData(stringMap map[string]interface{}, input *models.Input) (map[string]interface{}, error) {
 
-	url := "https://api.covid19api.com/country/india/status/confirmed?from=2022-10-01T00:00:00Z&to=2022-10-03T00:00:00Z"
+	url := "https://api.covid19api.com/country/" + input.Country + "/status/confirmed?from=" + input.FromDate + "T00:00:00Z&to=" + input.ToDate + "T00:00:00Z"
 	method := "GET"
 
 	client := &http.Client{}
@@ -39,6 +38,6 @@ func SearchData(stringMap map[string]interface{}, input *models.Input) (map[stri
 	var covidResponse models.CovidResponse
 	json.Unmarshal(body, &covidResponse)
 
-	stringMap["data"]=covidResponse
-	return stringMap,nil
+	stringMap["data"] = covidResponse
+	return stringMap, nil
 }
