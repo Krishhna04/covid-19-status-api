@@ -1,0 +1,53 @@
+{
+	"info": {
+		"_postman_id": "09afb3ab-45ae-4b32-8f78-f6b3c1f31cf7",
+		"name": "Covid status",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get status",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "country",
+							"value": "india",
+							"type": "default"
+						},
+						{
+							"key": "from",
+							"value": "2022-10-01",
+							"type": "default"
+						},
+						{
+							"key": "to",
+							"value": "2022-10-03",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:9063/api/v1/search",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9063",
+					"path": [
+						"api",
+						"v1",
+						"search"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
